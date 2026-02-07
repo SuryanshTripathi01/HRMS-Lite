@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+database.db
+database.db-shm
+database.db-wal
+.env
+login_credentials.txt
