@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #f4f6f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background:
+                url("/static/login-bg.png") center/cover no-repeat;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            width: 300px;
+            border-radius: 8px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+        }
+
+        input {
+            width: 92%;
+            padding: 10px;
+            margin-top: 10px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            background: #0d6efd;
+            border: none;
+            color: white;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: linear-gradient(135deg, #1c74f7, #20c997);
+
+        }
+
+        .btn-hover-pulse {
+            transition: transform 0.3s ease;
+        }
+
+        .btn-hover-pulse:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="card">
+        <h2 style="text-align:center;">ADMIN / HR Login</h2>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% for category, msg in messages %}
+        <p style="color:red;">{{ msg }}</p>
+        {% endfor %}
+        {% endwith %}
+
+        <form method="post">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit" class="btn-gradient-blue btn-hover-pulse">Login</button>
+        </form>
+    </div>
+
+</body>
+
+</html>

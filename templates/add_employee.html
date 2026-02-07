@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Add Employee</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #eef2f3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .form-box {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            width: 300px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin: 10px 0;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #007BFF;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        a {
+            display: block;
+            margin-top: 10px;
+            text-align: center;
+            text-decoration: none;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="form-box">
+        <h2>Add Employee</h2>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% for category, msg in messages %}
+        <p style="color:red;">{{ msg }}</p>
+        {% endfor %}
+        {% endwith %}
+
+        <form method="post">
+            <input type="text" name="employee_id" placeholder="Employee ID (EMP001)" required>
+            <input type="text" name="name" placeholder="Employee Name" required>
+            <input type="email" name="email" placeholder="Email Address" required>
+            <input type="text" name="dept" placeholder="Department" required>
+            <input type="text" name="role" placeholder="Role" required>
+
+            <button type="submit">Add Employee</button>
+        </form>
+
+        <a href="/employees">View Employees</a>
+    </div>
+
+</body>
+
+</html>
